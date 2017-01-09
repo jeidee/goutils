@@ -2,7 +2,6 @@ package aws
 
 import (
 	"errors"
-	"fmt"
 	"io"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -94,11 +93,8 @@ func (o *S3) PutObject(reader io.ReadSeeker, key string) error {
 		Key:    &key,
 	})
 	if err != nil {
-		fmt.Println(err)
 		return err
 	}
-
-	fmt.Println(ret)
 
 	return nil
 }
@@ -110,11 +106,8 @@ func (o *S3) DeleteObject(key string) error {
 		Key:    &key,
 	})
 	if err != nil {
-		fmt.Println(err)
 		return err
 	}
-
-	//fmt.Println(ret)
 
 	return nil
 }
