@@ -87,7 +87,7 @@ func (o *S3) GetBucketList() ([]string, error) {
 
 func (o *S3) PutObject(reader io.ReadSeeker, key string) error {
 
-	ret, err := o.svc.PutObject(&s3.PutObjectInput{
+	_, err := o.svc.PutObject(&s3.PutObjectInput{
 		Body:   reader,
 		Bucket: &o.bucket,
 		Key:    &key,
