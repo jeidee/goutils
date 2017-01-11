@@ -38,7 +38,7 @@ func GetLogger(params ...interface{}) (*log.Logger, error) {
 
 	logConf := params[0].(*Log)
 
-	f, err := os.OpenFile(logConf.Path, os.O_WRONLY|os.O_APPEND, 0755)
+	f, err := os.OpenFile(logConf.Path, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0755)
 	if err != nil {
 		log.Error(err)
 	}
